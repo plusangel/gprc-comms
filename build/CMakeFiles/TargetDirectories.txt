@@ -1,0 +1,5 @@
+/home/angelos/Documents/platformComms/build/CMakeFiles/edit_cache.dir
+/home/angelos/Documents/platformComms/build/CMakeFiles/client.dir
+/home/angelos/Documents/platformComms/build/CMakeFiles/utils.dir
+/home/angelos/Documents/platformComms/build/CMakeFiles/rebuild_cache.dir
+/home/angelos/Documents/platformComms/build/CMakeFiles/server.dir

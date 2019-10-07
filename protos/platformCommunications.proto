@@ -1,0 +1,125 @@
+﻿syntax = "proto3";
+
+package platformcomms;
+
+// Service for communications on the platfrom
+service PlatformCommunications {
+  // Initialises the mobile platform's state
+  rpc Initialize (InitializationRequest) returns (PlatformState);
+
+  // Sends the platform to a given location and opens a stream for return notifications
+  // TODO: Continuous response notifications should probably be moved to a separate channel
+  rpc GoToTarget (TargetRequest) returns (stream PlatformState);
+
+  // Sends the platform to a given height
+  rpc GoToHeight (HeightRequest) returns (PlatformState);
+
+  // Ensures the platform is stable
+  rpc Stabilize (StabilityRequest) returns (PlatformState);
+
+  // Make the platform safe
+  rpc MakeSafe (MakeSafeRequest) returns (PlatformState);
+
+  // Get the current state of the platform
+  rpc GetState (StateRequest) returns (PlatformState);
+}
+
+// Requests
+message Request {
+   oneof subtype {
+      InitializationRequest InitializationRequest = 10;
+      TargetRequest TargetRequest = 11;
+      StabilityRequest StabilityRequest = 12;
+      MakeSafeRequest MakeSafeRequest = 13;
+      StateRequest StateRequest = 14;
+	   HeightRequest HeightRequest = 15;
+   }
+}
+
+message HeightRequest {
+   double Height = 1;
+}
+
+message InitializationRequest {
+   Pose ApproximatePose = 1;
+   Map ApproximateMap = 2;
+}
+
+message MakeSafeRequest {
+   bool MakeSafe = 1;
+}
+
+message StabilityRequest {
+   bool Stabilize = 1;
+}
+
+message StateRequest {
+   bool GetState = 1;
+}
+
+message TargetRequest {
+   Pose Target = 1;
+}
+
+// Spatial
+message Pose {
+   Vector3D Position = 1;
+   Quaternion Orientation = 2;
+}
+
+message Quaternion {
+   double X = 1;
+   double Y = 2;
+   double Z = 3;
+   double R = 4;
+}
+
+message Vector3D {
+   double X = 1;
+   double Y = 2;
+   double Z = 3;
+}
+
+// Map
+message Map {
+   int32 ImageWidth = 2;
+   int32 ImageHeight = 3;
+   double Resolution = 4;
+   Vector3D Origin = 5;
+   double LocalisationOccupiedThreshold = 6;
+   double PathPlanningOccupiedThreshold = 7;
+}
+
+// Alerts
+message Alert {
+   string Title = 1;
+   int64 TimeStamp = 2;
+   string Topic = 3;
+   AlertLevel Severity = 4;
+}
+
+enum AlertLevel {
+   None = 0;
+   Info = 1;
+   Remark = 2;
+   Warning = 3;
+   Error = 4;
+}
+
+// Platform
+message PlatformState {
+   Status Status = 1;
+   Pose AlertPose = 2;
+   double LiftHeight = 3;
+   bool Stable = 4;
+   float BatteryLevel = 5;
+   repeated Alert Alerts = 6;
+}
+
+enum Status {
+   Unknown = 0;
+   Faulted = 1;
+   Uninitialized = 2;
+   Ready = 3;
+   Running = 4;
+}

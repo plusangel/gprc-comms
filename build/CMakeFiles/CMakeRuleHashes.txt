@@ -1,0 +1,3 @@
+# Hashes of file build rules.
+9274f5707733e647a02ab996fe109802 proto-src/platformCommunications.grpc.pb.cc
+7e5aa58ccd27433525acaa0e09bd8f4a proto-src/platformCommunications.pb.cc
