@@ -25,4 +25,4 @@ build:
   script:
     - mkdir ~/platformComms
     - cd ~/platformComms
-    - git clone https://angelos.plastropoulos@innotecuk.com:$password@gitlab.com/innotecuk/grpc-comms.git
+    - git clone https://angelos.plastropoulos@innotecuk.com:$PASSWORD@gitlab.com/innotecuk/grpc-comms.git
