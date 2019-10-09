@@ -5,6 +5,12 @@ add_compile_options(-std=c++17)
 
 include_directories(include)
 
+# gtests stuff
+# https://www.eriksmistad.no/getting-started-with-google-test-on-ubuntu/
+find_package(GTest REQUIRED)
+include_directories(${GTEST_INCLUDE_DIRS})
+
+# grpc stuff
 add_library(utils ${CMAKE_CURRENT_SOURCE_DIR}/include/utils.hpp)
 set_target_properties(utils PROPERTIES LINKER_LANGUAGE CXX)
 
@@ -47,6 +53,7 @@ add_executable(client
     ${PROTO_SRCS}
     ${GRPC_SRCS}
 )
+
 target_link_libraries(client
     gRPC::grpc++_reflection
     protobuf::libprotobuf

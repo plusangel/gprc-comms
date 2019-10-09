@@ -9,3 +9,13 @@
 
 #include "platformCommunications.grpc.pb.h"
 #include "utils.hpp"
+
+class PlatformCommunicationsClient {
+    public:
+    PlatformCommunicationsClient(std::shared_ptr<grpc::Channel> channel);
+    
+    bool Initialize();
+
+    private:
+    std::unique_ptr<platformcomms::PlatformCommunications::Stub> stub_;
+};
