@@ -1,5 +1,7 @@
 # Changelog for platformComms
 
+## 0.0.13 integrate CI attempt (#10)
+
 ## 0.0.12 Start preparing the structures for the tests
 
 ## 0.0.11 integrate CI attempt (#9)
