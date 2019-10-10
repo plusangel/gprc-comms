@@ -16,7 +16,10 @@ set_target_properties(utils PROPERTIES LINKER_LANGUAGE CXX)
 
 # GRPC and Protocol Buffers libraries location
 #list(APPEND CMAKE_PREFIX_PATH "/opt/grpc" "/opt/protobuf")
-list(APPEND CMAKE_PREFIX_PATH "/usr/local/lib/")
+LINK_DIRECTORIES(/usr/local/lib/)
+TARGET_LINK_LIBRARIES(protobuf libprotobuf)
+TARGET_LINK_LIBRARIES(gRPC libgrpc)
+#list(APPEND CMAKE_PREFIX_PATH "/usr/local/lib/")
 
 # Cmake find modules
 list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_LIST_DIR}/cmake")
