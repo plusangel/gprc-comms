@@ -1,10 +1,16 @@
 image: grpc/cxx
 
 before_script:
-  - apt-get update 
-  - apt-get install -y cmake
-  - apt-get clean
+  libraries-setup:
+    - apt-get update 
+    - apt-get install -y cmake libgtest-dev
+    - apt-get clean
 
+  gtest-build:
+    - cd /usr/src/gtest
+    - cmake CMakeLists.txt
+    - make
+    - cp *.a /usr/lib
 
 build:
   script:

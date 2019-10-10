@@ -1,5 +1,8 @@
 # Changelog for platformComms
 
+## 0.0.17 integrate CI attempt (#14)
+Install gtest
+
 ## 0.0.16 integrate CI attempt (#13)
 
 ## 0.0.15 integrate CI attempt (#12)
