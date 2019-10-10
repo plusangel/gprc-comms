@@ -6,16 +6,15 @@ add_compile_options(-std=c++11)
 
 # gtests stuff
 # https://www.eriksmistad.no/getting-started-with-google-test-on-ubuntu/
-# find_package(GTest REQUIRED)
-# include_directories(${GTEST_INCLUDE_DIRS})
+find_package(GTest REQUIRED)
+include_directories(${GTEST_INCLUDE_DIRS})
 
 # utils library for convenience
 add_library(utils ${CMAKE_CURRENT_SOURCE_DIR}/include/utils.hpp)
 set_target_properties(utils PROPERTIES LINKER_LANGUAGE CXX)
 
 # GRPC and Protocol Buffers libraries location
-#list(APPEND CMAKE_PREFIX_PATH "/opt/grpc" "/opt/protobuf")
-list(APPEND CMAKE_PREFIX_PATH "/usr/local/include")
+list(APPEND CMAKE_PREFIX_PATH "/opt/grpc" "/opt/protobuf")
 
 # Cmake find modules
 list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_LIST_DIR}/cmake")
@@ -44,13 +43,7 @@ set(PROTO_SRC_DIR ${CMAKE_CURRENT_BINARY_DIR}/proto-src)
 file(MAKE_DIRECTORY ${PROTO_SRC_DIR})
 include_directories(${PROTO_SRC_DIR})
 
-include_directories(usr/local/include)
-link_directories(usr/local/lib)
-
 include_directories(
-    /usr/local/include
-    ${PROTO_SRC_DIR}
-    ${CMAKE_CURRENT_BINARY_DIR}
     ${CMAKE_SOURCE_DIR}/include
 )
 

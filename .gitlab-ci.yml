@@ -1,25 +1,4 @@
-image: ubuntu:18.04
-
-before_script:
-  - apt-get update
-  - apt-get install -y build-essential autoconf libtool pkg-config automake curl cmake
-  - apt-get install -y automake libtool curl make g++ unzip git
-  - apt-get clean
-  - git clone -b $(curl -L https://grpc.io/release) https://github.com/grpc/grpc
-  - cd grpc
-  - git submodule update --init
- 
-  # Build and install protobuf
-  - cd ./third_party/protobuf
-  - ./autogen.sh
-  - ./configure --prefix=/opt/protobuf
-  - make -j `nproc`
-  - make install
-  
-# Build and install gRPC
-  - cd ../..
-  - make -j `nproc` PROTOC=/opt/protobuf/bin/protoc 
-  - make prefix=/opt/grpc install
+image: plusangel/grpc-cplusplus-ubuntu18
 
 build:
   script:
