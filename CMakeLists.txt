@@ -1,14 +1,14 @@
 project(grpc-route)
 cmake_minimum_required(VERSION 3.2)
 
-add_compile_options(-std=c++17)
+add_compile_options(-std=c++11)
 
 include_directories(include)
 
 # gtests stuff
 # https://www.eriksmistad.no/getting-started-with-google-test-on-ubuntu/
-find_package(GTest REQUIRED)
-include_directories(${GTEST_INCLUDE_DIRS})
+# find_package(GTest REQUIRED)
+# include_directories(${GTEST_INCLUDE_DIRS})
 
 # utils library for convenience
 add_library(utils ${CMAKE_CURRENT_SOURCE_DIR}/include/utils.hpp)
