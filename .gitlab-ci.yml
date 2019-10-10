@@ -1,7 +1,7 @@
 image: ubuntu:18.04
 
 before_script:
-  - sudo apt-get install build-essential autoconf libtool pkg-config automake curl
+  - apt-get install build-essential autoconf libtool pkg-config automake curl cmake
   - git clone -b $(curl -L https://grpc.io/release) https://github.com/grpc/grpc
   - cd grpc
   - git submodule update --init
@@ -11,12 +11,12 @@ before_script:
   - ./autogen.sh
   - ./configure --prefix=/opt/protobuf
   - make -j `nproc`
-  - sudo make install
+  - make install
   
 # Build and install gRPC
   - cd ../..
   - make -j `nproc` PROTOC=/opt/protobuf/bin/protoc 
-  - sudo make prefix=/opt/grpc install
+  - make prefix=/opt/grpc install
 
 build:
   script:
