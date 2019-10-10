@@ -1,5 +1,15 @@
 image: plusangel/grpc-cplusplus-ubuntu18:0.1.0
 
+before_srcipt:
+  - apt-get update 
+  - apt-get install -y cmake libgtest-dev
+  - apt-get clean
+  - cd /usr/src/gtest
+  - cmake CMakeLists.txt
+  - make
+  - cp *.a /usr/lib
+
+
 build:
   script:
     - git clone https://angelos.p:$PASSWORD@gitlab.com/innotecuk/grpc-comms.git
