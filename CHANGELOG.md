@@ -1,5 +1,8 @@
 # Changelog for platformComms
 
+## 0.0.35
+The client waits for the server to start.
+
 ## 0.0.34 integrate CI attempt (#30)
 
 ## 0.0.33 integrate CI attempt (#29)

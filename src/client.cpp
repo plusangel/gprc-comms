@@ -31,10 +31,18 @@ PlatformCommunicationsClient::PlatformCommunicationsClient(std::shared_ptr<Chann
     
 bool PlatformCommunicationsClient::Initialize()
 {
+    unsigned int client_connection_timeout = 5000;
     ClientContext context;
     InitializationRequest initialRequest;
     PlatformState platformState;
     
+    // Set timeout for API
+    std::chrono::system_clock::time_point deadline =
+    std::chrono::system_clock::now() + std::chrono::seconds(client_connection_timeout);
+
+    context.set_wait_for_ready(true);
+    context.set_deadline(deadline);
+
     Utils::set_pose(initialRequest.mutable_approximatepose(), {0.0, 1.0, 2.0}, {3.0, 4.0, 5.0, 6.0});
 
     initialRequest.mutable_approximatemap()->set_imagewidth(2);
@@ -59,7 +67,7 @@ int main(int argc, char** argv)
 {
     
     PlatformCommunicationsClient robot(grpc::CreateChannel("localhost:50051", grpc::InsecureChannelCredentials()));
-    
+   
     if (robot.Initialize())
         std::cout << "Initialisation sucessfully completed" << std:: endl;
     else

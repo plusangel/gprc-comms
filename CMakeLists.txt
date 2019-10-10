@@ -37,7 +37,7 @@ else()
     message(FATAL_ERROR "Failed to find GRPC.")
 endif()
 
-set(PROTOS ${CMAKE_CURRENT_SOURCE_DIR}/protos/platformCommunications.proto)
+set(PROTOS ${CMAKE_CURRENT_SOURCE_DIR}/proto/platformCommunications.proto)
 
 set(PROTO_SRC_DIR ${CMAKE_CURRENT_BINARY_DIR}/proto-src)
 file(MAKE_DIRECTORY ${PROTO_SRC_DIR})
