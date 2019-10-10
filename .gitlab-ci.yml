@@ -1,4 +1,4 @@
-image: plusangel/grpc-cplusplus-ubuntu18
+image: plusangel/grpc-cplusplus-ubuntu18:0.1.0
 
 build:
   script:
