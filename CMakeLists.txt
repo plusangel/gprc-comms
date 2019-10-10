@@ -10,12 +10,13 @@ include_directories(include)
 find_package(GTest REQUIRED)
 include_directories(${GTEST_INCLUDE_DIRS})
 
-# grpc stuff
+# utils library for convenience
 add_library(utils ${CMAKE_CURRENT_SOURCE_DIR}/include/utils.hpp)
 set_target_properties(utils PROPERTIES LINKER_LANGUAGE CXX)
 
 # GRPC and Protocol Buffers libraries location
-list(APPEND CMAKE_PREFIX_PATH "/opt/grpc" "/opt/protobuf")
+#list(APPEND CMAKE_PREFIX_PATH "/opt/grpc" "/opt/protobuf")
+list(APPEND CMAKE_PREFIX_PATH "/usr/local/lib/")
 
 # Cmake find modules
 list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_LIST_DIR}/cmake")
