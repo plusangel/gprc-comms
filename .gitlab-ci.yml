@@ -3,6 +3,7 @@ image: grpc/cxx
 build:
   script:
     - git clone https://angelos.p:$PASSWORD@gitlab.com/innotecuk/grpc-comms.git
-    - cd grpc-comms/build
+    - cd grpc-comms/
+    - mkdir -p build && cd build
     - cmake .
     - make
