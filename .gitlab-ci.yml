@@ -1,5 +1,11 @@
 image: grpc/cxx
-    
+
+before_script:
+  - apt-get update 
+  - apt-get install -y cmake
+  - apt-get clean
+
+
 build:
   script:
     - git clone https://angelos.p:$PASSWORD@gitlab.com/innotecuk/grpc-comms.git
