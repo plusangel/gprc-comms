@@ -1,6 +1,6 @@
 image: plusangel/grpc-cplusplus-ubuntu18:0.1.0
 
-before_srcipt:
+before_script:
   - apt-get update 
   - apt-get install -y cmake libgtest-dev
   - apt-get clean
@@ -8,7 +8,6 @@ before_srcipt:
   - cmake CMakeLists.txt
   - make
   - cp *.a /usr/lib
-
 
 build:
   script:

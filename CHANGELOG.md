@@ -1,5 +1,7 @@
 # Changelog for platformComms
 
+## 0.0.34 integrate CI attempt (#30)
+
 ## 0.0.33 integrate CI attempt (#29)
 
 ## 0.0.32 integrate CI attempt (#28)
