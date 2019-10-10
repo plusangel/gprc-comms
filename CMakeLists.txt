@@ -21,7 +21,18 @@ list(APPEND CMAKE_PREFIX_PATH "/opt/grpc" "/opt/protobuf")
 list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_LIST_DIR}/cmake")
 
 find_package(Protobuf REQUIRED)
+if (Protobuf_FOUND)
+    message(STATUS "Libraries for Protobuf found")
+else()
+    message(FATAL_ERROR "Failed to find Protobuf.")
+endif()
+
 find_package(GRPC REQUIRED)
+if (GRPC_FOUND)
+    message(STATUS "Libraries for GRPC found")
+else()
+    message(FATAL_ERROR "Failed to find GRPC.")
+endif()
 
 set(PROTOS
     ${CMAKE_CURRENT_SOURCE_DIR}/protos/platformCommunications.proto

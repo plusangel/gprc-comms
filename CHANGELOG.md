@@ -1,5 +1,11 @@
 # Changelog for platformComms
 
+## 0.0.19 
+CMakelisst.txt updated
+
+## 0.0.18 integrate CI attempt (#15)
+yml bug fix
+
 ## 0.0.17 integrate CI attempt (#14)
 Install gtest
 
