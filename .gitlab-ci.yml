@@ -1,13 +1,22 @@
-image: grpc/cxx
+image: ubuntu:18.04
 
 before_script:
-    - apt-get update 
-    - apt-get install -y cmake libgtest-dev
-    - apt-get clean
-    - cd /usr/src/gtest
-    - cmake CMakeLists.txt
-    - make
-    - cp *.a /usr/lib
+  - sudo apt-get install build-essential autoconf libtool pkg-config automake curl
+  - git clone -b $(curl -L https://grpc.io/release) https://github.com/grpc/grpc
+  - cd grpc
+  - git submodule update --init
+ 
+  # Build and install protobuf
+  - cd ./third_party/protobuf
+  - ./autogen.sh
+  - ./configure --prefix=/opt/protobuf
+  - make -j `nproc`
+  - sudo make install
+  
+# Build and install gRPC
+  - cd ../..
+  - make -j `nproc` PROTOC=/opt/protobuf/bin/protoc 
+  - sudo make prefix=/opt/grpc install
 
 build:
   script:
