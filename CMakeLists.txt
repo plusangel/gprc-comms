@@ -44,6 +44,8 @@ set(PROTO_SRC_DIR ${CMAKE_CURRENT_BINARY_DIR}/proto-src)
 file(MAKE_DIRECTORY ${PROTO_SRC_DIR})
 include_directories(${PROTO_SRC_DIR})
 
+include_directories(usr/local/include)
+link_directories(usr/local/lib)
 
 include_directories(
     /usr/local/include
