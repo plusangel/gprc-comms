@@ -30,6 +30,7 @@ testing:
       - cd grpc-comms/
       - mkdir -p build && cd build
       - cmake ..
+      - make
       - make tests
       - cd ..
       - ./startup.sh
