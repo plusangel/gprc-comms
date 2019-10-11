@@ -10,6 +10,7 @@ before_script:
   - cp *.a /usr/lib
 
 build:
+  stage: build
   script:
     - git clone https://angelos.p:$PASSWORD@gitlab.com/innotecuk/grpc-comms.git
     - cd grpc-comms/
@@ -19,6 +20,7 @@ build:
     - make tests
 
 testing:
+    stage: test
     script:
       - cd ..
       - ./startup.sh
