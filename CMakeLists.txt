@@ -6,6 +6,7 @@ add_compile_options(-std=c++17)
 
 # gtests stuff
 # https://www.eriksmistad.no/getting-started-with-google-test-on-ubuntu/
+enable_testing()
 find_package(GTest REQUIRED)
 include_directories(${GTEST_INCLUDE_DIRS})
 
@@ -76,7 +77,7 @@ target_link_libraries(client
     utils
 )
 
-# Building main
+# Building demo main
 add_executable(comm
     ${CMAKE_CURRENT_SOURCE_DIR}/main.cpp
 )
@@ -84,4 +85,19 @@ add_executable(comm
 target_link_libraries(comm
     client
     server
+)
+
+# build the tests
+add_executable(tests 
+    ${CMAKE_CURRENT_SOURCE_DIR}/tests/basicTests.cpp
+)
+
+target_link_libraries(tests 
+    gtest 
+    gtest_main
+    client
+)
+
+add_test(tests 
+    tests
 )

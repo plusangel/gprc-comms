@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Runs your server executable in background
-./build/comm &
+./build/server &
 
 # Gets the PID of proccess
 RUN_ME_PID=$!

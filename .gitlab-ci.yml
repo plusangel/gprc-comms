@@ -16,5 +16,10 @@ build:
     - mkdir -p build && cd build
     - cmake ..
     - make
-    - cd ..
-    - ./startup.sh
+    - make tests
+
+testing:
+    script:
+      - cd ..
+      - ./startup.sh
+      - ./tests

@@ -1,5 +1,8 @@
 # Changelog for platformComms
 
+## 0.0.40 - 11/10/2019
+Testing integrated. Attempt (#1)
+
 ## 0.0.39 - 11/10/2019
 Kill the main after some time
 
