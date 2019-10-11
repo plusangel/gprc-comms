@@ -57,13 +57,3 @@ void gRPC_Server::spin() const
 {
     server->Wait();
 }
-
-
-/*
-int main(int argc, char** argv) {
-    gRPC_Server myServer {"0.0.0.0:50051"};
-    myServer.spin();
-
-    return 0;
-}
-*/

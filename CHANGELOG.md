@@ -1,7 +1,10 @@
 # Changelog for platformComms
 
+## 0.0.37 - 11/10/2019
+Main test
+
 ## 0.0.36 - 11/10/2019
-The server converted a class
+The server converted to a class
 Header files improved
 
 ## 0.0.35

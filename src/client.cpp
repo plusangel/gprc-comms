@@ -62,18 +62,3 @@ bool PlatformCommunicationsClient::Initialize()
     }
     return false;
 }
-
-/*
-int main(int argc, char** argv)
-{
-    
-    PlatformCommunicationsClient robot(grpc::CreateChannel("localhost:50051", grpc::InsecureChannelCredentials()));
-   
-    if (robot.Initialize())
-        std::cout << "Initialisation sucessfully completed" << std:: endl;
-    else
-        std::cout << "Error in initialisation" << std::endl;
- 
-    return 0;
-}
-*/
