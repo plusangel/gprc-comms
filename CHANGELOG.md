@@ -1,5 +1,8 @@
 # Changelog for platformComms
 
+## 0.0.38 - 11/10/2019
+tweak CI
+
 ## 0.0.37 - 11/10/2019
 Main test
 
