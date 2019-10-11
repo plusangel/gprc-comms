@@ -32,6 +32,6 @@ testing:
       - cmake ..
       - make
       - make tests
+      - ./tests
       - cd ..
       - ./startup.sh
-      - ./tests
