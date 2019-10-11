@@ -1,3 +1,6 @@
+#ifndef UTILS_H
+#define UTILS_H
+
 #include <array>
 
 #include "platformCommunications.grpc.pb.h"
@@ -31,3 +34,5 @@ public:
         alert->set_severity(level);
     }
 };
+
+#endif //UTILS_H

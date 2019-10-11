@@ -1,5 +1,9 @@
 # Changelog for platformComms
 
+## 0.0.36 - 11/10/2019
+The server converted a class
+Header files improved
+
 ## 0.0.35
 The client waits for the server to start.
 

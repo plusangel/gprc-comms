@@ -63,6 +63,7 @@ bool PlatformCommunicationsClient::Initialize()
     return false;
 }
 
+/*
 int main(int argc, char** argv)
 {
     
@@ -75,3 +76,4 @@ int main(int argc, char** argv)
  
     return 0;
 }
+*/

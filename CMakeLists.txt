@@ -1,7 +1,7 @@
 project(grpc-route)
 cmake_minimum_required(VERSION 3.2)
 
-add_compile_options(-std=c++11)
+add_compile_options(-std=c++17)
 
 
 # gtests stuff
@@ -51,7 +51,7 @@ protobuf_generate_cpp(PROTO_SRCS PROTO_HDRS ${PROTO_SRC_DIR} ${PROTOS})
 grpc_generate_cpp(GRPC_SRCS GRPC_HDRS ${PROTO_SRC_DIR} ${PROTOS})
 
 # Building server
-add_executable(server
+add_library(server
     ${CMAKE_CURRENT_SOURCE_DIR}/src/server.cpp
     ${PROTO_SRCS}
     ${GRPC_SRCS}
@@ -64,7 +64,7 @@ target_link_libraries(server
 )
 
 # Building client
-add_executable(client
+add_library(client
     ${CMAKE_CURRENT_SOURCE_DIR}/src/client.cpp
     ${PROTO_SRCS}
     ${GRPC_SRCS}
@@ -74,4 +74,14 @@ target_link_libraries(client
     ${_GRPC_GRPCPP_REFLECTION}
     ${_PROTOBUF_LIBPROTOBUF}
     utils
+)
+
+# Building main
+add_executable(comm
+    ${CMAKE_CURRENT_SOURCE_DIR}/main.cpp
+)
+
+target_link_libraries(comm
+    client
+    server
 )

@@ -1,9 +1,9 @@
 #!/bin/bash
 
-# Runs your runme.sh in background
+# Runs your server executable in background
 ./build/server &
 
-# Gets the PID of runme.sh
+# Gets the PID of proccess
 RUN_ME_PID=$!
 
 # Sleeps how much time you need:
@@ -11,3 +11,5 @@ sleep 10s
 
 # Kills the process:
 kill -9 $RUN_ME_PID
+
+# enjoy life!

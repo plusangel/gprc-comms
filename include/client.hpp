@@ -1,3 +1,6 @@
+#ifndef CLIENT_H
+#define CLIENT_H
+
 #include <iostream>
 #include <string>
 
@@ -19,3 +22,5 @@ class PlatformCommunicationsClient {
     private:
     std::unique_ptr<platformcomms::PlatformCommunications::Stub> stub_;
 };
+
+#endif //CLIENT_H
