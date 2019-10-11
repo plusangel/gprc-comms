@@ -83,7 +83,6 @@ add_executable(comm
 )
 
 target_link_libraries(comm
-    client
     server
 )
 
