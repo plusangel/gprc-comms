@@ -1,5 +1,8 @@
 # Changelog for platformComms
 
+## 0.0.42 - 11/10/2019
+Testing integrated. Attempt (#3)
+
 ## 0.0.41 - 11/10/2019
 Testing integrated. Attempt (#2)
 

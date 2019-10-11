@@ -1,3 +1,7 @@
+stages:
+  - build
+  - testing
+
 image: plusangel/grpc-cplusplus-ubuntu18:0.1.0
 
 before_script:
@@ -22,6 +26,11 @@ build:
 testing:
     stage: test
     script:
+      - git clone https://angelos.p:$PASSWORD@gitlab.com/innotecuk/grpc-comms.git
+      - cd grpc-comms/
+      - mkdir -p build && cd build
+      - cmake ..
+      - make tests
       - cd ..
       - ./startup.sh
       - ./tests
