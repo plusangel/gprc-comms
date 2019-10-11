@@ -1,5 +1,8 @@
 # Changelog for platformComms
 
+## 0.0.39 - 11/10/2019
+Kill the main after some time
+
 ## 0.0.38 - 11/10/2019
 tweak CI
 
