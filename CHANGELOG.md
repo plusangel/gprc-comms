@@ -1,5 +1,8 @@
 # Changelog for platformComms
 
+## 0.0.51 - 14/10/2019
+CMakeLists bug fix
+
 ## 0.0.50 - 14/10/2019
 Yaml integrated. Attempt (#1)
 

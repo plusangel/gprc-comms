@@ -31,7 +31,6 @@ find_package(Protobuf REQUIRED)
 set(_PROTOBUF_LIBPROTOBUF protobuf::libprotobuf)
 if (Protobuf_FOUND)
     message(STATUS "Libraries for Protobuf found")
-    message(STATUS "Using protobuf ${protobuf_VERSION}")
 else()
     message(FATAL_ERROR "Failed to find Protobuf.")
 endif()
@@ -40,7 +39,6 @@ find_package(GRPC REQUIRED)
 set(_GRPC_GRPCPP_REFLECTION gRPC::grpc++_reflection)
 if (GRPC_FOUND)
     message(STATUS "Libraries for GRPC found")
-    message(STATUS "Using gRPC ${gRPC_VERSION}")
 else()
     message(FATAL_ERROR "Failed to find GRPC.")
 endif()
@@ -106,5 +104,5 @@ target_link_libraries(clientTests
 )
 
 add_test(clientTests 
-    tests ${CMAKE_CURRENT_BINARY_DIR}
+    clientTests ${CMAKE_CURRENT_BINARY_DIR}
 )
