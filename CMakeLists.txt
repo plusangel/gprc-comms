@@ -104,5 +104,5 @@ target_link_libraries(tests
 )
 
 add_test(tests 
-    tests ${CMAKE_CURRENT_BINARY_DIR}
+    tests ${CMAKE_CURRENT_SOURCE_DIR}
 )
