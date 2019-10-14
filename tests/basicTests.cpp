@@ -1,7 +1,5 @@
 #include <gtest/gtest.h>
 #include "client.hpp"
-#include "server.hpp"
-#include <thread>
 
 TEST(basicComms, handshake)
 {

@@ -21,19 +21,17 @@ build:
     - mkdir -p build && cd build
     - cmake ..
     - make
-    - make tests
 
 testing:
-    stage: test
-    script:
-      - git clone https://angelos.p:$PASSWORD@gitlab.com/innotecuk/grpc-comms.git
-      - cd grpc-comms/
-      - mkdir -p build && cd build
-      - cmake ..
-      - make
-      - make tests
-      - cd ..
-      - ./startup.sh
-      - cd build
-      - ./tests
-      
+  stage: test
+  script:
+    - git clone https://angelos.p:$PASSWORD@gitlab.com/innotecuk/grpc-comms.git
+    - cd grpc-comms/
+    - mkdir -p build && cd build
+    - cmake ..
+    - make
+    - make tests
+    - cd ..
+    - ./startup.sh &
+    - cd build
+    - ./tests
