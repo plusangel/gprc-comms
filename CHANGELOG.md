@@ -1,5 +1,8 @@
 # Changelog for platformComms
 
+## 0.0.54 - 14/10/2019
+Yaml integrated. Attempt (#4)
+
 ## 0.0.53 - 14/10/2019
 Yaml integrated. Attempt (#3)
 

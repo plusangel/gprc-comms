@@ -16,8 +16,9 @@ int main(int argc, char* argv[])
     testing::InitGoogleTest(&argc, argv);
 
     std::string local_root = argv[1];
+    std::string config_file = "config.yaml";
     
-    YAML::Node config = YAML::LoadFile("config.yaml");
+    YAML::Node config = YAML::LoadFile(local_root + config_file);
 
     std::string ip = config["IP"].as<std::string>();
     std::string port = config["PORT"].as<std::string>();
