@@ -9,9 +9,14 @@ before_script:
   - apt-get install -y cmake libgtest-dev
   - apt-get clean
   - cd /usr/src/gtest
-  - cmake CMakeLists.txt
-  - make
+  - cmake CMakeLists.txt && make
   - cp *.a /usr/lib
+  - cd ~
+  - git clone https://github.com/jbeder/yaml-cpp.git
+  - cd yaml-cpp-master
+  - mkdir build && cd build
+  - cmake .. && make && make install
+
 
 build:
   stage: build
@@ -19,8 +24,7 @@ build:
     - git clone https://angelos.p:$PASSWORD@gitlab.com/innotecuk/grpc-comms.git
     - cd grpc-comms/
     - mkdir -p build && cd build
-    - cmake ..
-    - make
+    - cmake .. && make
 
 testing:
   stage: test
@@ -28,9 +32,7 @@ testing:
     - git clone https://angelos.p:$PASSWORD@gitlab.com/innotecuk/grpc-comms.git
     - cd grpc-comms/
     - mkdir -p build && cd build
-    - cmake ..
-    - make
-    - make tests
+    - cmake .. && make && make tests
     - cd ..
     - ./startup.sh &
     - cd build

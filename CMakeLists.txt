@@ -20,6 +20,13 @@ list(APPEND CMAKE_PREFIX_PATH "/opt/grpc" "/opt/protobuf")
 # Cmake find modules
 list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_LIST_DIR}/cmake")
 
+find_package(yaml-cpp)
+if (yaml-cpp_FOUND)
+    message(STATUS "Libraries for yaml-cpp found")
+else()
+    message(FATAL_ERROR "Failed to find yaml-cpp.")
+endif()
+
 find_package(Protobuf REQUIRED)
 set(_PROTOBUF_LIBPROTOBUF protobuf::libprotobuf)
 if (Protobuf_FOUND)
@@ -87,16 +94,17 @@ target_link_libraries(comm
 )
 
 # build the tests
-add_executable(tests 
-    ${CMAKE_CURRENT_SOURCE_DIR}/tests/basicTests.cpp
+add_executable(clientTests 
+    ${CMAKE_CURRENT_SOURCE_DIR}/tests/clientTests.cpp
 )
 
-target_link_libraries(tests 
+target_link_libraries(clientTests 
     gtest 
     gtest_main
     client
+    yaml-cpp
 )
 
-add_test(tests 
-    tests
+add_test(clientTests 
+    tests ${CMAKE_CURRENT_BINARY_DIR}
 )
