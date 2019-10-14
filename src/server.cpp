@@ -50,7 +50,7 @@ gRPC_Server::gRPC_Server(const std::string address) : server_address{address}
     builder.RegisterService(&service);
 
     server = builder.BuildAndStart();
-    std::cout << "Server listening on " <<server_address << std::endl;
+    std::cout << "Server go to listening mode on " <<server_address << std::endl;
 }
 
 void gRPC_Server::spin() const
