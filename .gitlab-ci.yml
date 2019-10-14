@@ -34,5 +34,5 @@ testing:
     - cd build
     - cmake .. && make && make tests
     - cd .. 
-    - ./serverStartup.sh
+    - ./serverStartup.sh &
     - cd build && ctest
