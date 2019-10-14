@@ -92,7 +92,7 @@ target_link_libraries(comm
 )
 
 # build the tests
-add_executable(test 
+add_executable(tests 
     ${CMAKE_CURRENT_SOURCE_DIR}/tests/clientTests.cpp
 )
 
