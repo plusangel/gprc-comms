@@ -1,5 +1,8 @@
 # Changelog for platformComms
 
+## 0.0.60 - 14/10/2019
+bash script updated
+
 ## 0.0.59 - 14/10/2019
 Yaml debug & integrated. Attempt (#7)
 
