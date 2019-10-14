@@ -89,6 +89,7 @@ add_executable(comm
 
 target_link_libraries(comm
     server
+    yaml-cpp
 )
 
 # build the tests

@@ -3,7 +3,7 @@
 echo "Starting..."
 
 # Runs your server executable in background
-./build/comm &
+./build/comm . &
 
 # Gets the PID of proccess
 RUN_ME_PID=$!

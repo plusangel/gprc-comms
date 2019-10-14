@@ -19,8 +19,6 @@ int main(int argc, char* argv[])
     std::string local_root = argv[1];
     std::string config_file = "config.yaml";
 
-    std::cerr << "Hola " + local_root + "/" + config_file << std::endl;
-
     YAML::Node config = YAML::LoadFile(local_root + "/" + config_file);
 
     std::string ip = config["IP"].as<std::string>();

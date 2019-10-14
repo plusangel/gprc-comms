@@ -5,8 +5,7 @@ stages:
 image: plusangel/grpc-cplusplus-ubuntu18:0.1.0
 
 before_script:
-  - apt-get update 
-  - apt-get install -y cmake libgtest-dev
+  - apt-get update && apt-get install -y cmake libgtest-dev
   - apt-get clean
   - cd /usr/src/gtest
   - cmake CMakeLists.txt && make
@@ -33,7 +32,5 @@ testing:
     - cd grpc-comms/
     - mkdir -p build && cd build
     - cmake .. && make && make tests
-    - cd ..
-    - ./startup.sh &
-    - cd build
-    - ctest
+    - cd .. && ./serverStartup.sh &
+    - cd build && ctest
