@@ -92,17 +92,17 @@ target_link_libraries(comm
 )
 
 # build the tests
-add_executable(clientTests 
+add_executable(test 
     ${CMAKE_CURRENT_SOURCE_DIR}/tests/clientTests.cpp
 )
 
-target_link_libraries(clientTests 
+target_link_libraries(tests 
     gtest 
     gtest_main
     client
     yaml-cpp
 )
 
-add_test(clientTests 
-    clientTests ${CMAKE_CURRENT_BINARY_DIR}
+add_test(tests 
+    tests ${CMAKE_CURRENT_BINARY_DIR}
 )

@@ -36,4 +36,4 @@ testing:
     - cd ..
     - ./startup.sh &
     - cd build
-    - ./tests
+    - ctest
