@@ -30,7 +30,9 @@ testing:
   script:
     - git clone https://angelos.p:$PASSWORD@gitlab.com/innotecuk/grpc-comms.git
     - cd grpc-comms/
-    - mkdir -p build && cd build
+    - mkdir -p build 
+    - cd build
     - cmake .. && make && make tests
-    - cd .. && ./serverStartup.sh &
+    - cd .. 
+    - ./serverStartup.sh
     - cd build && ctest

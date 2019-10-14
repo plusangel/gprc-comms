@@ -1,5 +1,8 @@
 # Changelog for platformComms
 
+## 0.0.58 - 14/10/2019
+Yaml debug & integrated. Attempt (#6)
+
 ## 0.0.56 - 14/10/2019
 Yaml addoption in server startup.
 
