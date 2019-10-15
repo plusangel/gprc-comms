@@ -82,12 +82,12 @@ target_link_libraries(client
     utils
 )
 
-# Building demo main
-add_executable(comm
-    ${CMAKE_CURRENT_SOURCE_DIR}/main.cpp
+# Building demo serverBringup
+add_executable(serverBringup
+    ${CMAKE_CURRENT_SOURCE_DIR}/serverBringup.cpp
 )
 
-target_link_libraries(comm
+target_link_libraries(serverBringup
     server
     yaml-cpp
 )

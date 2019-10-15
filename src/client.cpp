@@ -62,3 +62,27 @@ bool PlatformCommunicationsClient::Initialize()
     }
     return false;
 }
+
+bool PlatformCommunicationsClient::GoToHeight(double desiredHeight)
+{
+    unsigned int client_connection_timeout = 5000;
+    ClientContext context;
+    
+    // Set timeout for API
+    std::chrono::system_clock::time_point deadline =
+    std::chrono::system_clock::now() + std::chrono::seconds(client_connection_timeout);
+
+    context.set_wait_for_ready(true);
+    context.set_deadline(deadline);
+
+    HeightRequest heightRequest;
+    heightRequest.set_height(desiredHeight);
+    PlatformState platformState;
+
+    Status status = stub_->GoToHeight(&context, heightRequest, &platformState);
+
+    if (status.ok()) {
+        return true;
+    }
+    return false;
+}

@@ -18,7 +18,8 @@ class PlatformCommunicationsClient {
     PlatformCommunicationsClient(std::shared_ptr<grpc::Channel> channel);
     
     bool Initialize();
-
+    bool GoToHeight(double desired_height);
+    
     private:
     std::unique_ptr<platformcomms::PlatformCommunications::Stub> stub_;
 };

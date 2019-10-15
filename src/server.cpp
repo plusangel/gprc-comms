@@ -25,7 +25,8 @@ using platformcomms::PlatformState;
 
 using platformcomms::PlatformCommunications;
 
-Status PlatformCommunicationsImpl::Initialize(ServerContext* context, const InitializationRequest* request,
+Status PlatformCommunicationsImpl::Initialize(ServerContext* context, 
+    const InitializationRequest* request,
     PlatformState* platformState)
 {
     

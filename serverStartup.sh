@@ -15,7 +15,7 @@ fi
 echo "Starting..."
 
 # Runs your server executable in background
-./build/comm . &
+./build/serverBringup . &
 
 # Gets the PID of proccess
 RUN_ME_PID=$!
