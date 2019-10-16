@@ -19,7 +19,26 @@ TEST(clientTests, handshakeGoToHeight)
     EXPECT_TRUE(robot.GoToHeight(3.1));
 }
 
+TEST(clientTests, handshakeStabilize)
+{
+    PlatformCommunicationsClient robot(grpc::CreateChannel(connection_string, grpc::InsecureChannelCredentials()));
+    
+    EXPECT_TRUE(robot.Stabilize(true));
+}
 
+TEST(clientTests, handshakeMakeSafe)
+{
+    PlatformCommunicationsClient robot(grpc::CreateChannel(connection_string, grpc::InsecureChannelCredentials()));
+    
+    EXPECT_TRUE(robot.MakeSafe(true));
+}
+
+TEST(clientTests, handshakeGetStae)
+{
+    PlatformCommunicationsClient robot(grpc::CreateChannel(connection_string, grpc::InsecureChannelCredentials()));
+    
+    EXPECT_TRUE(robot.GetState(true));
+}
 
 int main(int argc, char* argv[])
 {

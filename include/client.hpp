@@ -18,9 +18,13 @@ class PlatformCommunicationsClient {
     PlatformCommunicationsClient(std::shared_ptr<grpc::Channel> channel);
     
     bool Initialize();
-    bool GoToHeight(double desired_height);
+    bool GoToHeight(double desiredHeight);
+    bool Stabilize(bool stabilityRequest);
+    bool MakeSafe(bool makeSafeRequest);
+    bool GetState(bool stateRequest);
     
     private:
+    const unsigned int client_connection_timeout = 5000;
     std::unique_ptr<platformcomms::PlatformCommunications::Stub> stub_;
 };
 

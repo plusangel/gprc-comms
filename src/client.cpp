@@ -23,7 +23,7 @@ using platformcomms::Alert;
 using platformcomms::PlatformState;
 
 using platformcomms::PlatformCommunications;
-
+using std::chrono::system_clock;
 
 PlatformCommunicationsClient::PlatformCommunicationsClient(std::shared_ptr<Channel> channel) :
     stub_(PlatformCommunications::NewStub(channel)) {}
@@ -31,15 +31,12 @@ PlatformCommunicationsClient::PlatformCommunicationsClient(std::shared_ptr<Chann
     
 bool PlatformCommunicationsClient::Initialize()
 {
-    unsigned int client_connection_timeout = 5000;
     ClientContext context;
     InitializationRequest initialRequest;
     PlatformState platformState;
     
     // Set timeout for API
-    std::chrono::system_clock::time_point deadline =
-    std::chrono::system_clock::now() + std::chrono::seconds(client_connection_timeout);
-
+    system_clock::time_point deadline = system_clock::now() + std::chrono::seconds(client_connection_timeout);
     context.set_wait_for_ready(true);
     context.set_deadline(deadline);
 
@@ -57,21 +54,15 @@ bool PlatformCommunicationsClient::Initialize()
 
     Status status = stub_->Initialize(&context, initialRequest, &platformState);
 
-    if (status.ok()) {
-        return true;
-    }
-    return false;
+    return status.ok()?true:false;
 }
 
 bool PlatformCommunicationsClient::GoToHeight(double desiredHeight)
 {
-    unsigned int client_connection_timeout = 5000;
     ClientContext context;
     
     // Set timeout for API
-    std::chrono::system_clock::time_point deadline =
-    std::chrono::system_clock::now() + std::chrono::seconds(client_connection_timeout);
-
+    system_clock::time_point deadline = system_clock::now() + std::chrono::seconds(client_connection_timeout);
     context.set_wait_for_ready(true);
     context.set_deadline(deadline);
 
@@ -81,8 +72,61 @@ bool PlatformCommunicationsClient::GoToHeight(double desiredHeight)
 
     Status status = stub_->GoToHeight(&context, heightRequest, &platformState);
 
-    if (status.ok()) {
-        return true;
-    }
-    return false;
+    return status.ok()?true:false;
+}
+
+bool PlatformCommunicationsClient::Stabilize(bool request)
+{
+    ClientContext context;
+    
+    // Set timeout for API
+    system_clock::time_point deadline = system_clock::now() + std::chrono::seconds(client_connection_timeout);
+    context.set_wait_for_ready(true);
+    context.set_deadline(deadline);
+
+    StabilityRequest stabilityRequest;
+    stabilityRequest.set_stabilize(request);
+    PlatformState platformState;
+
+    Status status = stub_->Stabilize(&context, stabilityRequest, &platformState);
+
+    return status.ok()?true:false;
+}
+
+
+bool PlatformCommunicationsClient::MakeSafe(bool request)
+{
+    ClientContext context;
+    
+    // Set timeout for API
+    system_clock::time_point deadline = system_clock::now() + std::chrono::seconds(client_connection_timeout);
+    context.set_wait_for_ready(true);
+    context.set_deadline(deadline);
+
+    MakeSafeRequest makeSafeRequest;
+    makeSafeRequest.set_makesafe(request);
+    PlatformState platformState;
+
+    Status status = stub_->MakeSafe(&context, makeSafeRequest, &platformState);
+
+    return status.ok()?true:false;
+}
+
+
+bool PlatformCommunicationsClient::GetState(bool request)
+{
+    ClientContext context;
+    
+    // Set timeout for API
+    system_clock::time_point deadline = system_clock::now() + std::chrono::seconds(client_connection_timeout);
+    context.set_wait_for_ready(true);
+    context.set_deadline(deadline);
+
+    StateRequest stateRequest;
+    stateRequest.set_getstate(request);
+    PlatformState platformState;
+
+    Status status = stub_->GetState(&context, stateRequest, &platformState);
+
+    return status.ok()?true:false;
 }
