@@ -68,10 +68,14 @@ bool PlatformCommunicationsClient::GoToTarget()
     context.set_wait_for_ready(true);
     context.set_deadline(deadline);
 
+    std::cout << "Send the request" << std::endl;
+
     Utils::set_pose(targetRequest.mutable_target(), {0.0, 1.0, 2.0}, {3.0, 4.0, 5.0, 6.0});
 
-    std::unique_ptr<ClientReader<PlatformState> > reader(stub_->GoToTarget(&context, targetRequest));
+    std::unique_ptr<ClientReader<PlatformState>> reader(stub_->GoToTarget(&context, targetRequest));
     
+    std::cout << "Ready to receive the stream" << std::endl;
+
     while (reader->Read(&platformState)) {
       std::cout << "Found feature called " << std::endl;
     }

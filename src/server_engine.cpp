@@ -49,6 +49,7 @@ Status PlatformCommunicationsImpl::GoToTarget(ServerContext* context,
         const TargetRequest* request, ServerWriter<PlatformState>* writer)
 {
     std::vector<PlatformState> dummyList;
+    
     Utils::statesFactory(dummyList);
 
     for (const PlatformState& p : dummyList)

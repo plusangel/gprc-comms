@@ -1,6 +1,7 @@
 #ifndef UTILS_H
 #define UTILS_H
 
+#include <iostream>
 #include <array>
 #include <vector>
 
@@ -42,19 +43,20 @@ public:
 
     static void statesFactory(std::vector<PlatformState>& list)
     {
-        PlatformState* state;
-        state->set_status(pStatus::Ready);
-        set_pose(state->mutable_alertpose(), {0.0, 1.0, 2.0}, {3.0, 4.0, 5.0, 6.0});
-        state->set_liftheight(3.1);
-        state->set_stable(true);
-        state->set_batterylevel(5.0);
+        PlatformState state;
+
+        state.set_status(pStatus::Ready);
+        set_pose(state.mutable_alertpose(), {0.0, 1.0, 2.0}, {3.0, 4.0, 5.0, 6.0});
+        state.set_liftheight(3.1);
+        state.set_stable(true);
+        state.set_batterylevel(5.0);
     
-        Alert* alert = state->add_alerts();
-        Utils::set_alert(alert, "GoToHeight State", 11111, "topic", AlertLevel::Info);
+        Alert* alert = state.add_alerts();
+        Utils::set_alert(alert, "GoToTarget State", 11111, "topic", AlertLevel::Info);
 
         for (int i = 0; i<10; ++i)
         {
-            list.push_back(*state);
+            list.push_back(state);
         }
     }
 };

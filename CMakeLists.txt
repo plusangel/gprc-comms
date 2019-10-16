@@ -108,7 +108,7 @@ target_link_libraries(serverBringup
 
 # build the tests
 add_executable(tests 
-    ${CMAKE_CURRENT_SOURCE_DIR}/tests/clientTests.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/tests/client_tests.cpp
 )
 
 target_link_libraries(tests 
@@ -120,4 +120,13 @@ target_link_libraries(tests
 
 add_test(tests 
     tests ${CMAKE_CURRENT_SOURCE_DIR}
+)
+
+add_executable(local_tests 
+    ${CMAKE_CURRENT_SOURCE_DIR}/tests/local_tests.cpp
+)
+
+target_link_libraries(local_tests 
+    client
+    yaml-cpp
 )

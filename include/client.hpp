@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <string>
+#include <memory>
 
 #include <grpc/grpc.h>
 #include <grpcpp/channel.h>
