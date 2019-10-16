@@ -19,6 +19,10 @@ class PlatformCommunicationsImpl final : public platformcomms::PlatformCommunica
     grpc::Status Initialize(grpc::ServerContext* context, 
         const platformcomms::InitializationRequest* request, 
         platformcomms::PlatformState* platformState) override;
+    
+    grpc::Status GoToHeight(grpc::ServerContext* context, 
+        const platformcomms::HeightRequest* request, 
+        platformcomms::PlatformState* platformState) override;
 };
 
 class gRPC_Server {

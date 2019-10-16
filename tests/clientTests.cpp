@@ -5,12 +5,21 @@
 
 std::string connection_string;
 
-TEST(clientTests, handshake)
+TEST(clientTests, handshakeInit)
 {
     PlatformCommunicationsClient robot(grpc::CreateChannel(connection_string, grpc::InsecureChannelCredentials()));
     
     EXPECT_TRUE(robot.Initialize());
 }
+
+TEST(clientTests, handshakeGoToHeight)
+{
+    PlatformCommunicationsClient robot(grpc::CreateChannel(connection_string, grpc::InsecureChannelCredentials()));
+    
+    EXPECT_TRUE(robot.GoToHeight(3.1));
+}
+
+
 
 int main(int argc, char* argv[])
 {

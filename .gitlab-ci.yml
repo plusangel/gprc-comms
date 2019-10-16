@@ -35,4 +35,4 @@ testing:
     - cmake .. && make && make tests
     - cd .. 
     - ./serverStartup.sh &
-    - cd build && ctest
+    - cd build && ctest --verbose

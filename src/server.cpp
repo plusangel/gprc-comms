@@ -29,7 +29,6 @@ Status PlatformCommunicationsImpl::Initialize(ServerContext* context,
     const InitializationRequest* request,
     PlatformState* platformState)
 {
-    
     platformState->set_status(platformcomms::Status::Ready);
 
     Utils::set_pose(platformState->mutable_alertpose(), {0.0, 1.0, 2.0}, {3.0, 4.0, 5.0, 6.0});
@@ -39,9 +38,28 @@ Status PlatformCommunicationsImpl::Initialize(ServerContext* context,
     platformState->set_batterylevel(5.0);
     
     Alert* alert = platformState->add_alerts();
-    Utils::set_alert(alert, "title", 11111, "topic", platformcomms::AlertLevel::Info);
+    Utils::set_alert(alert, "Initiliazation State", 11111, "topic", platformcomms::AlertLevel::Info);
 
-    std::cout << "Hola!" << std::endl;
+    std::cout << "Hola Initilization!" << std::endl;
+    return Status::OK;
+}
+
+grpc::Status PlatformCommunicationsImpl::GoToHeight(grpc::ServerContext* context, 
+        const platformcomms::HeightRequest* request, 
+        platformcomms::PlatformState* platformState)
+{
+    platformState->set_status(platformcomms::Status::Ready);
+
+    Utils::set_pose(platformState->mutable_alertpose(), {0.0, 1.0, 2.0}, {3.0, 4.0, 5.0, 6.0});
+    
+    platformState->set_liftheight(3.1);
+    platformState->set_stable(true);
+    platformState->set_batterylevel(5.0);
+    
+    Alert* alert = platformState->add_alerts();
+    Utils::set_alert(alert, "GoToHeight State", 11111, "topic", platformcomms::AlertLevel::Info);
+
+    std::cout << "Hola GoToHeight!" << std::endl;
     return Status::OK;
 }
 
