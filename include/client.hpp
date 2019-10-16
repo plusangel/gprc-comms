@@ -18,6 +18,7 @@ class PlatformCommunicationsClient {
     PlatformCommunicationsClient(std::shared_ptr<grpc::Channel> channel);
     
     bool Initialize();
+    bool GoToTarget();
     bool GoToHeight(double desiredHeight);
     bool Stabilize(bool stabilityRequest);
     bool MakeSafe(bool makeSafeRequest);

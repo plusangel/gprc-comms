@@ -1,5 +1,8 @@
 # Changelog for platformComms
 
+## 0.0.66 - 16/10/2019
+GoToTarget added in client, server and tests
+
 ## 0.0.65 - 16/10/2019
 Server refactored to engine and facade
 

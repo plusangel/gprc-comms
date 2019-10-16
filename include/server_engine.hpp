@@ -20,6 +20,11 @@ class PlatformCommunicationsImpl final : public platformcomms::PlatformCommunica
         const platformcomms::InitializationRequest* request, 
         platformcomms::PlatformState* platformState) override;
     
+    // Sends the platform to a given location and opens a stream for return notifications
+    grpc::Status GoToTarget(grpc::ServerContext* context,
+        const platformcomms::TargetRequest* request,
+        grpc::ServerWriter<platformcomms::PlatformState>* writer) override;
+
     // Sends the platform to a given height
     grpc::Status GoToHeight(grpc::ServerContext* context, 
         const platformcomms::HeightRequest* request, 

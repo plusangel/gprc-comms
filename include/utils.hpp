@@ -2,6 +2,7 @@
 #define UTILS_H
 
 #include <array>
+#include <vector>
 
 #include "platformCommunications.grpc.pb.h"
 
@@ -9,6 +10,9 @@ using platformcomms::Pose;
 using platformcomms::Quaternion;
 using platformcomms::Vector3D;
 
+using platformcomms::AlertLevel;
+using platformcomms::PlatformState;
+using pStatus = platformcomms::Status;
 using platformcomms::Alert;
 
 class Utils {
@@ -32,6 +36,26 @@ public:
         alert->set_timestamp(timestamp);
         alert->set_topic(topic);
         alert->set_severity(level);
+    }
+
+    std::vector<PlatformState> states_list;
+
+    static void statesFactory(std::vector<PlatformState>& list)
+    {
+        PlatformState* state;
+        state->set_status(pStatus::Ready);
+        set_pose(state->mutable_alertpose(), {0.0, 1.0, 2.0}, {3.0, 4.0, 5.0, 6.0});
+        state->set_liftheight(3.1);
+        state->set_stable(true);
+        state->set_batterylevel(5.0);
+    
+        Alert* alert = state->add_alerts();
+        Utils::set_alert(alert, "GoToHeight State", 11111, "topic", AlertLevel::Info);
+
+        for (int i = 0; i<10; ++i)
+        {
+            list.push_back(*state);
+        }
     }
 };
 

@@ -57,6 +57,30 @@ bool PlatformCommunicationsClient::Initialize()
     return status.ok()?true:false;
 }
 
+bool PlatformCommunicationsClient::GoToTarget()
+{
+    ClientContext context;
+    TargetRequest targetRequest;
+    PlatformState platformState;
+    
+    // Set timeout for API
+    system_clock::time_point deadline = system_clock::now() + std::chrono::seconds(client_connection_timeout);
+    context.set_wait_for_ready(true);
+    context.set_deadline(deadline);
+
+    Utils::set_pose(targetRequest.mutable_target(), {0.0, 1.0, 2.0}, {3.0, 4.0, 5.0, 6.0});
+
+    std::unique_ptr<ClientReader<PlatformState> > reader(stub_->GoToTarget(&context, targetRequest));
+    
+    while (reader->Read(&platformState)) {
+      std::cout << "Found feature called " << std::endl;
+    }
+    
+    Status status = reader->Finish();
+
+    return status.ok()?true:false;
+}
+
 bool PlatformCommunicationsClient::GoToHeight(double desiredHeight)
 {
     ClientContext context;

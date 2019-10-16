@@ -9,7 +9,6 @@ if [ -z "$1" ];
   else 
     time=$1
     echo "Argument supplied - default $time secs"
-    
 fi
 
 echo "Starting..."
@@ -19,7 +18,6 @@ echo "Starting..."
 
 # Gets the PID of proccess
 RUN_ME_PID=$!
-
 
 echo "Spinning for $time seconds"
 
