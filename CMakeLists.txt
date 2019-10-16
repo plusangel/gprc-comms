@@ -69,6 +69,19 @@ target_link_libraries(server
     utils
 )
 
+# Building server
+add_library(server_engine
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/server_engine.cpp
+    ${PROTO_SRCS}
+    ${GRPC_SRCS}
+)
+
+target_link_libraries(server_engine
+    ${_GRPC_GRPCPP_REFLECTION}
+    ${_PROTOBUF_LIBPROTOBUF}
+    utils
+)
+
 # Building client
 add_library(client
     ${CMAKE_CURRENT_SOURCE_DIR}/src/client.cpp
@@ -89,6 +102,7 @@ add_executable(serverBringup
 
 target_link_libraries(serverBringup
     server
+    server_engine
     yaml-cpp
 )
 

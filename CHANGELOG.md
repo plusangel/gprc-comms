@@ -1,5 +1,8 @@
 # Changelog for platformComms
 
+## 0.0.65 - 16/10/2019
+Server refactored to engine and facade
+
 ## 0.0.64 - 16/10/2019
 Stabilize, MakeSafe & GetState added in the cleint side + tests
 
