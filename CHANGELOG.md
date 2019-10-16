@@ -1,5 +1,8 @@
 # Changelog for platformComms
 
+## 0.0.63 - 16/10/2019
+Stabilize, MakeSafe & GetState added in the server side
+
 ## 0.0.62 - 16/10/2019
 GoToHeight added in the server side
 
